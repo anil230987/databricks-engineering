@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    pipeline_dlt_orders_pipeline:
+      name: dlt_orders_pipeline
+      libraries:
+        - notebook:
+            path: ../notebooks/dlt_dab_demo_orders.sql
+      schema: ${resources.schemas.bronze_schema.name}
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${resources.schemas.bronze_schema.catalog_name} #dev
+      serverless: true
+      root_path: /Repos/anil_chatani@yahoo.co.in/databricks-engineering/resources/notebooks

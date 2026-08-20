@@ -1,0 +1,17 @@
+resources:
+  jobs:
+    dab_demo_job:
+      name: dab_demo_job
+      tasks:
+        - task_key: demo_notebook
+          notebook_task:
+            notebook_path: ../notebooks/demo_repo_notebook.ipynb
+            source: WORKSPACE
+          environment_key: demo_notebook_environment
+      queue:
+        enabled: true
+      environments:
+        - environment_key: demo_notebook_environment
+          spec:
+            environment_version: "5"
+      performance_target: PERFORMANCE_OPTIMIZED

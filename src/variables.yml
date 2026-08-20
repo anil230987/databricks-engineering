@@ -1,0 +1,5 @@
+# This variable will be passed with catalog name while deplying, if we want to deploy dev then we will deploy dev catalog and if we want to deply QA env then we will pass QA catalog.
+variables:
+  catalog:
+    description: This is the name of the target catalog
+    default: dev
