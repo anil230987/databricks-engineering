@@ -1,0 +1,39 @@
+bundle:
+  name: DABDemo
+
+# We will remove this from here because this we will specify in resoruce folder for each resource , so comment it
+
+#resources:
+  #resources should be here
+  
+# But we have to specify include , mean whatever we will specify in yml fiels in respectvie folder , we will include those in paranet file and those can be resembled from parent yml file.
+
+# WE will specify what we wnat to include in our bundle , we will not specify noteboook because , notebook will be called from pipelines and jobs automatically when we deploy DAB
+
+include:
+  - src/*.yml
+  - src/env/*.yml
+  - resources/jobs/*.yml
+  - resources/pipelines/*.yml
+  - resources/schemas/*.yml
+
+
+permissions:
+  - group_name: de_grp
+    level: CAN_MANAGE 
+   #de_grp group will have can manage permission on whole project. If we have defined any specif permission on resource it will override permission defined here
+
+targets:
+  dev:
+    mode: development
+    default: true # In case we did not mentioned any targets while deploying project then this will be considered as default env.
+    workspace:
+      host: https://dbc-b29a02fd-117e.cloud.databricks.com/
+  
+  qa:
+    workspace:
+      host: https://dbc-b29a02fd-117e.cloud.databricks.com/ # we have to change this to QA workspace host.
+
+
+
+

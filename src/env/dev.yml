@@ -1,0 +1,9 @@
+targets:
+  dev:
+    permissions:
+      - group_name: de_grp
+        level: CAN_MANAGE
+    
+    presets: #If we specify presets then each user can deploy thier own resource with below naming convention, we will mention this only DEV not in QA. Same job will be deployed with different name in dev env only, so each developer can test
+      name_prefix: (dev ${workspace.current_user.short_name})
+      source_linked_deployment: false

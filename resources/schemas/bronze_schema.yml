@@ -1,0 +1,5 @@
+resources:
+  schemas:
+    bronze_schema:
+      name: bronze
+      catalog_name: ${var.catalog} # this variable we have defined in variable.yml so whatever we will pass in catalog that will get passed in variable. shema will be created with name bronze
